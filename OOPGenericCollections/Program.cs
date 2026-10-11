@@ -63,5 +63,42 @@ internal class Program
         {
             Console.WriteLine("Emp3 is not in stack");
         }
+
+        Console.WriteLine("------------------------------");
+
+        var employees2 = new List<Employee>();
+
+        employees2.Add(employee1);
+        employees2.Add(employee2);
+        employees2.Add(employee3);
+        employees2.Add(employee4);
+        employees2.Add(employee5);
+
+        if (employees2.Contains(employee2))
+        {
+            Console.WriteLine("Employee2 object exists in the list");
+        }
+        else
+        {
+            Console.WriteLine("Employee2 object does not exist in the list");
+        }
+
+        Console.WriteLine();
+
+        var employeeMale = employees2.Find(e => e.Gender == "Male");
+
+        if (employeeMale is not null)
+        {
+            Console.WriteLine($"{employeeMale.Id} - {employeeMale.Name} - {employeeMale.Gender} - {employeeMale.Salary}");
+        }
+
+        Console.WriteLine();
+
+        var employeesMale = employees2.FindAll(e => e.Gender == "Male");
+
+        foreach (var male in employeesMale)
+        {
+            Console.WriteLine($"{male.Id} - {male.Name} - {male.Gender} - {male.Salary}");
+        }
     }
 }
